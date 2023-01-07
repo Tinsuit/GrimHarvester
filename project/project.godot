@@ -16,8 +16,8 @@ config/icon="res://textures/icon.png"
 
 [display]
 
-window/size/width=720
-window/size/height=480
+window/size/width=470
+window/size/height=270
 window/stretch/aspect="keep"
 
 [gui]
