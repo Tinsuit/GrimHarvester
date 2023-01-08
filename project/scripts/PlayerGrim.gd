@@ -7,7 +7,7 @@ var running = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$AnimatedSprite.frame = 2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
