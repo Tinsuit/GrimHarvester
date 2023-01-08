@@ -4,12 +4,10 @@ extends KinematicBody2D
 export var speed:int = 50
 var target
 var running = false
-onready var timer = $DoubleTap
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.stop()
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -21,18 +19,12 @@ func _physics_process(delta):
 			
 func _unhandled_input(event):
 	if event is InputEventScreenDrag:
-		look_at(event.position)
-		target = event.position
-		timer.stop()
-	elif event is InputEventScreenTouch:
-		target = event.position
+		target = (global_position - (get_viewport_rect().size / 2)) + event.position
 		look_at(target)
-		print(timer.time_left)
-		if timer.time_left > 0:
-			running = true
-		else:
-			running = false
-			timer.start()
+	elif event is InputEventScreenTouch:
+		target = (global_position - (get_viewport_rect().size / 2)) + event.position
+		look_at(target)
+		running = true
 
 func reset():
 	target = null
