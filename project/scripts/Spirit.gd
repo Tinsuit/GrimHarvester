@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed = 20
+export var speed = 40
 const MIN_TIME = 1
 const MAX_TIME = 2
 var dir
@@ -24,7 +24,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if dir != null:
-		move_and_slide(dir * speed * (3 if running else 1))
+		move_and_slide(dir * speed * (5 if running else 1))
 	else: 
 		dir = directions.values()[randi() % directions.size()]
 		$Run.wait_time = randf() + 0.5
@@ -34,14 +34,12 @@ func _process(delta):
 
 func _on_Run_timeout():
 	dir = null
-	$ColorRect.color = Color.royalblue
 	running = false
 	
 func run_away(pos:Vector2):
 	dir = (position-pos).normalized()
 	$Run.wait_time = randf() + 0.5
 	$Run.start()
-	$ColorRect.color = Color.red
 	running = true
 
 

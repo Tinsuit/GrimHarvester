@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-export var speed:int = 50
+export var speed:int = 150
 var target
 var running = false
 
