@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/PlayerGrim.gd" type="Script" id=1]
-[ext_resource path="res://Spirit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Forest.gd" type="Script" id=3]
 [ext_resource path="res://textures/ground3x.png" type="Texture" id=4]
 [ext_resource path="res://textures/ground-leaves3x.png" type="Texture" id=5]
@@ -113,70 +112,264 @@ shape = SubResource( 2 )
 position = Vector2( 0, -59 )
 texture = ExtResource( 6 )
 
+[node name="Tree2" type="StaticBody2D" parent="Trees"]
+position = Vector2( 653, 318 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree2"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree2"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree3" type="StaticBody2D" parent="Trees"]
+position = Vector2( 629, 432 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree3"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree3"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree4" type="StaticBody2D" parent="Trees"]
+position = Vector2( 665, 552 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree4"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree4"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree5" type="StaticBody2D" parent="Trees"]
+position = Vector2( 91, 764 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree5"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree5"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree6" type="StaticBody2D" parent="Trees"]
+position = Vector2( 161, 628 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree6"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree6"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree7" type="StaticBody2D" parent="Trees"]
+position = Vector2( 209, 436 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree7"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree7"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree8" type="StaticBody2D" parent="Trees"]
+position = Vector2( 335, 638 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree8"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree8"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree9" type="StaticBody2D" parent="Trees"]
+position = Vector2( 241, 924 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree9"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree9"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree10" type="StaticBody2D" parent="Trees"]
+position = Vector2( 1335, 726 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree10"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree10"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree11" type="StaticBody2D" parent="Trees"]
+position = Vector2( 1095, 850 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree11"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree11"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree12" type="StaticBody2D" parent="Trees"]
+position = Vector2( 1359, 558 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree12"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree12"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree13" type="StaticBody2D" parent="Trees"]
+position = Vector2( 1189, 676 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree13"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree13"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree14" type="StaticBody2D" parent="Trees"]
+position = Vector2( 1171, 278 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree14"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree14"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree15" type="StaticBody2D" parent="Trees"]
+position = Vector2( 1315, 232 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree15"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree15"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree16" type="StaticBody2D" parent="Trees"]
+position = Vector2( 1017, 428 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree16"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree16"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree17" type="StaticBody2D" parent="Trees"]
+position = Vector2( 589, 68 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree17"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree17"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree18" type="StaticBody2D" parent="Trees"]
+position = Vector2( 797, 894 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree18"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree18"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree19" type="StaticBody2D" parent="Trees"]
+position = Vector2( 523, 928 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree19"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree19"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree20" type="StaticBody2D" parent="Trees"]
+position = Vector2( 1027, 74 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree20"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree20"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
+[node name="Tree21" type="StaticBody2D" parent="Trees"]
+position = Vector2( 205, 172 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/Tree21"]
+shape = SubResource( 2 )
+
+[node name="Top" type="Sprite" parent="Trees/Tree21"]
+position = Vector2( 0, -59 )
+texture = ExtResource( 6 )
+
 [node name="Spirits" type="Node2D" parent="."]
-
-[node name="Spirit" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 251, 145 )
-
-[node name="Spirit2" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 254, 220 )
-
-[node name="Spirit3" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 254, 978 )
-
-[node name="Spirit4" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 736, 327 )
-
-[node name="Spirit5" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 179, 571 )
-
-[node name="Spirit6" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 374, 34 )
-
-[node name="Spirit7" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 92, 75 )
-
-[node name="Spirit8" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 1314, 988 )
-
-[node name="Spirit9" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 1130, 136 )
-
-[node name="Spirit10" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 1075, 514 )
-
-[node name="Spirit11" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 423, 892 )
-
-[node name="Spirit12" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 867, 275 )
-
-[node name="Spirit13" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 891, 790 )
-
-[connection signal="grim_neared" from="Spirits/Spirit" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit2" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit2" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit3" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit3" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit4" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit4" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit5" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit5" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit6" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit6" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit7" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit7" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit8" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit8" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit9" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit9" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit10" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit10" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit11" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit11" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit12" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit12" to="." method="_on_Spirit_grim_touched"]
-[connection signal="grim_neared" from="Spirits/Spirit13" to="." method="_on_Spirit_grim_neared"]
-[connection signal="grim_touched" from="Spirits/Spirit13" to="." method="_on_Spirit_grim_touched"]
