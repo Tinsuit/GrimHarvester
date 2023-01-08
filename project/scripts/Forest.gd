@@ -35,7 +35,7 @@ func _on_Spirit_grim_touched(spirit):
 	if spirit.player.frame == 0:
 		var a = Animal.instance()
 		a.position = spirit.position
-		add_child(a)
+		call_deferred("add_child", a)
 		spirits.erase(spirit)
 		spirit.queue_free()
 	else:

@@ -37,8 +37,8 @@ func set_readiness(i:int):
 func _process(delta):
 	if dir != null:
 		translate(dir * speed * delta * (5 if running else 1))
-		clamp(position.x, -100, 100)
-		clamp(position.y, -100, 100)
+		position.x = clamp(position.x, -1000, 1000)
+		position.y = clamp(position.y, -1000, 1000)
 	else:
 		if randf() >= 0.3: 
 			var areas:Array = get_overlapping_areas()
