@@ -12,14 +12,15 @@ func _ready():
 #	pass
 
 func _on_Spirit_grim_entered():
-	if $PlayerGrim.running == true:
+	if $Trees/PlayerGrim.running == true:
 		pass
 
 
 func _on_Spirit_grim_neared(spirit):
-	if $PlayerGrim.running == true:
-		spirit.run_away($PlayerGrim.position)
+	if $Trees/PlayerGrim.running == true:
+		spirit.run_away($Trees/PlayerGrim.position)
 
 
 func _on_Spirit_grim_touched(spirit):
 	spirit.queue_free()
+	$Trees/PlayerGrim/AnimatedSprite.play()
