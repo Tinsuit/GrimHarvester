@@ -443,6 +443,7 @@ margin_bottom = 40.0
 [node name="Label" type="Label" parent="Talky/Qu"]
 margin_right = 40.0
 margin_bottom = 17.0
+rect_scale = Vector2( 2, 2 )
 text = "????"
 
 [node name="Answer" type="Control" parent="Talky"]
@@ -450,10 +451,11 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Label" type="Label" parent="Talky/Answer"]
-margin_left = -158.0
-margin_top = -47.0
-margin_right = 215.0
-margin_bottom = 117.0
+margin_left = -288.0
+margin_top = -68.0
+margin_right = -52.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
 text = "Find Spirits that are ready to be harvested:
 
 
@@ -461,28 +463,24 @@ If they are not ready yet, trying to harvest them will make them less ready:"
 autowrap = true
 
 [node name="Legs" type="Sprite" parent="Talky/Answer"]
-position = Vector2( -113, -19 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -124, -8 )
 texture = ExtResource( 8 )
 hframes = 4
 
 [node name="Legs2" type="Sprite" parent="Talky/Answer"]
-position = Vector2( -92, 45 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -174, 156 )
 texture = ExtResource( 8 )
 hframes = 4
 frame = 2
 
 [node name="Legs3" type="Sprite" parent="Talky/Answer"]
-position = Vector2( -72, 45 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -141, 157 )
 texture = ExtResource( 8 )
 hframes = 4
 frame = 3
 
 [node name="Tails" type="Sprite" parent="Talky/Answer"]
-position = Vector2( -94, -19 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -87, -6 )
 texture = ExtResource( 8 )
 hframes = 4
 frame = 1
@@ -508,6 +506,7 @@ margin_bottom = 40.0
 [node name="Label" type="Label" parent="Talky4/Qu"]
 margin_right = 40.0
 margin_bottom = 17.0
+rect_scale = Vector2( 2, 2 )
 text = "????"
 
 [node name="Answer" type="Control" parent="Talky4"]
@@ -517,8 +516,9 @@ margin_bottom = 40.0
 [node name="Label" type="Label" parent="Talky4/Answer"]
 margin_left = -158.0
 margin_top = -47.0
-margin_right = 215.0
+margin_right = 64.0
 margin_bottom = 117.0
+rect_scale = Vector2( 2, 2 )
 text = "Spirits that spend too much time together may become less ready"
 autowrap = true
 
@@ -542,6 +542,7 @@ margin_bottom = 40.0
 [node name="Label" type="Label" parent="Talky3/Qu"]
 margin_right = 40.0
 margin_bottom = 17.0
+rect_scale = Vector2( 2, 2 )
 text = "????"
 
 [node name="Answer" type="Control" parent="Talky3"]
@@ -549,23 +550,22 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Label" type="Label" parent="Talky3/Answer"]
-margin_left = -158.0
-margin_top = -47.0
-margin_right = 215.0
-margin_bottom = 117.0
+margin_left = -170.0
+margin_top = -94.0
+margin_right = 203.0
+margin_bottom = 70.0
+rect_scale = Vector2( 2, 2 )
 text = "Live animal are dangerous
 Watch Out!"
 autowrap = true
 
 [node name="Legs" type="Sprite" parent="Talky3/Answer"]
-position = Vector2( -50, -11 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 26, -14 )
 texture = ExtResource( 10 )
 hframes = 4
 
 [node name="Tails" type="Sprite" parent="Talky3/Answer"]
-position = Vector2( -98, -2 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -63, 0 )
 texture = ExtResource( 11 )
 
 [node name="Area2D" type="Area2D" parent="Talky3"]
@@ -589,6 +589,7 @@ margin_bottom = 40.0
 [node name="Label" type="Label" parent="Talky2/Qu"]
 margin_right = 40.0
 margin_bottom = 17.0
+rect_scale = Vector2( 2, 2 )
 text = "????"
 
 [node name="Answer" type="Control" parent="Talky2"]
@@ -596,10 +597,11 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Label" type="Label" parent="Talky2/Answer"]
-margin_left = -126.0
-margin_top = -50.0
-margin_right = 56.0
-margin_bottom = 6.0
+margin_left = -168.0
+margin_top = -13.0
+margin_right = 35.0
+margin_bottom = 25.0
+rect_scale = Vector2( 2, 2 )
 text = "Tap the screen to run
 Drag to walk"
 autowrap = true
