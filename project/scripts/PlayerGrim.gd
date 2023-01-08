@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-export var speed:int = 200
+export var speed:int = 50
 var target
 var running = false
 onready var timer = $DoubleTap
@@ -13,20 +13,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if Input.is_action_just_pressed("point"):
-		var mouse = get_global_mouse_position()
-		look_at(mouse)
-		target = mouse
-		if timer.time_left > 0:
-			running = true
-		else:
-			running = false
-			timer.start()
-
 	if target != null:
 		var velocity:Vector2 = (target-position).normalized() * speed * (2 if running else 1)
 		var collision = move_and_collide(velocity * delta)
-		if collision != null || position.distance_to(target) < 10:
+		if collision != null || position.distance_to(target) < 4:
 			reset()
 			
 func _unhandled_input(event):
@@ -34,7 +24,16 @@ func _unhandled_input(event):
 		look_at(event.position)
 		target = event.position
 		timer.stop()
+	elif event is InputEventScreenTouch:
+		target = event.position
+		look_at(target)
+		print(timer.time_left)
+		if timer.time_left > 0:
+			running = true
+		else:
+			running = false
+			timer.start()
 
 func reset():
-	target == null
+	target = null
 	running = false

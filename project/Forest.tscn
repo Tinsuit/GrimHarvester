@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/PlayerGrim.gd" type="Script" id=1]
 [ext_resource path="res://Spirit.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Forest.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Forest.gd" type="Script" id=3]
 [ext_resource path="res://textures/ground-leaves.png" type="Texture" id=4]
 [ext_resource path="res://textures/ground.png" type="Texture" id=5]
 [ext_resource path="res://textures/tree.png" type="Texture" id=6]
@@ -62,6 +62,7 @@ script = ExtResource( 1 )
 shape = SubResource( 4 )
 
 [node name="DoubleTap" type="Timer" parent="PlayerGrim"]
+wait_time = 0.75
 one_shot = true
 
 [node name="Sprite" type="Sprite" parent="PlayerGrim"]
@@ -186,10 +187,50 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="Trees/Tree9"]
 texture = ExtResource( 6 )
 
-[node name="Spirit2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 375, 159 )
+[node name="Spirits" type="Node2D" parent="."]
 
-[node name="Spirit" parent="." instance=ExtResource( 2 )]
-position = Vector2( 53, 227 )
+[node name="Spirit" parent="Spirits" instance=ExtResource( 2 )]
+position = Vector2( 251, 145 )
 
-[connection signal="grim_entered" from="Spirit" to="." method="_on_Spirit_grim_entered"]
+[node name="Spirit2" parent="Spirits" instance=ExtResource( 2 )]
+position = Vector2( 254, 220 )
+
+[node name="Spirit3" parent="Spirits" instance=ExtResource( 2 )]
+position = Vector2( 265, 155 )
+
+[node name="Spirit4" parent="Spirits" instance=ExtResource( 2 )]
+position = Vector2( 244, 154 )
+
+[node name="Spirit5" parent="Spirits" instance=ExtResource( 2 )]
+position = Vector2( 254, 165 )
+
+[node name="Spirit6" parent="Spirits" instance=ExtResource( 2 )]
+position = Vector2( 374, 34 )
+
+[node name="Spirit7" parent="Spirits" instance=ExtResource( 2 )]
+position = Vector2( 92, 75 )
+
+[node name="Spirit8" parent="Spirits" instance=ExtResource( 2 )]
+position = Vector2( 89, 185 )
+
+[node name="Spirit9" parent="Spirits" instance=ExtResource( 2 )]
+position = Vector2( 253, 45 )
+
+[connection signal="grim_neared" from="Spirits/Spirit" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit2" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit2" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit3" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit3" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit4" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit4" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit5" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit5" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit6" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit6" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit7" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit7" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit8" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit8" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit9" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit9" to="." method="_on_Spirit_grim_touched"]
