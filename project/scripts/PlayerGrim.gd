@@ -14,6 +14,7 @@ func _physics_process(delta):
 	if target != null:
 		var velocity:Vector2 = (target-position).normalized() * speed * (2 if running else 1)
 		var collision = move_and_collide(velocity * delta)
+		$AnimatedSprite.flip_v = true if velocity.x < 0 else false
 		if collision != null || position.distance_to(target) < 4:
 			reset()
 			

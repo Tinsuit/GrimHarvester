@@ -1,8 +1,6 @@
-extends KinematicBody2D
+extends Area2D
 
 export var speed = 40
-const MIN_TIME = 1
-const MAX_TIME = 2
 var dir
 var running = false
 
@@ -24,9 +22,22 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if dir != null:
-		move_and_slide(dir * speed * (5 if running else 1))
+		translate(dir * speed * delta * (5 if running else 1))
 	else: 
-		dir = directions.values()[randi() % directions.size()]
+		var areas:Array = get_overlapping_areas()
+		if !areas.empty():
+			var dirs = []
+			if areas[0].position.x > 0:
+				dirs.push_back(directions.Right)
+			else:
+				dirs.push_back(directions.Left)
+			if areas[0].position.y > 0:
+				dirs.push_back(directions.Down)
+			else:
+				dirs.push_back(directions.Up)
+			dir = dirs[randi() % dirs.size()]
+		if dir == null:
+			dir = directions.values()[randi() % directions.size()]
 		$Run.wait_time = randf() + 0.5
 		$Run.start()
 		
@@ -50,5 +61,3 @@ func _on_Aura_Area2D_body_entered(body:Node):
 func _on_Body_body_entered(body:Node):
 	if body.name == "PlayerGrim":
 		emit_signal("grim_touched", self)
-	else:
-		 print(body.name)

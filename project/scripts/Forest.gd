@@ -23,4 +23,5 @@ func _on_Spirit_grim_neared(spirit):
 
 func _on_Spirit_grim_touched(spirit):
 	spirit.queue_free()
+	$Trees/PlayerGrim/AnimatedSprite.frame = 0
 	$Trees/PlayerGrim/AnimatedSprite.play()

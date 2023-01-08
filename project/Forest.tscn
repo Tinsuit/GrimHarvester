@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/PlayerGrim.gd" type="Script" id=1]
 [ext_resource path="res://Spirit.tscn" type="PackedScene" id=2]
@@ -38,24 +38,29 @@
 1/shapes = [  ]
 1/z_index = 0
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 7 )
-region = Rect2( 192, 0, 96, 96 )
+region = Rect2( 0, 0, 96, 96 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 96, 0, 96, 96 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 192, 0, 96, 96 )
 
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 96, 96 )
+
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": false,
 "name": "default",
 "speed": 5.0
@@ -84,8 +89,9 @@ tile_data = PoolIntArray( -262136, 1, 0, -262135, 1, 0, -262134, 1, 0, -196604, 
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Trees/PlayerGrim"]
-position = Vector2( 22, -8 )
+position = Vector2( -25, -57 )
 frames = SubResource( 8 )
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/PlayerGrim"]
 position = Vector2( 0, -20 )
@@ -136,17 +142,17 @@ position = Vector2( 1314, 988 )
 [node name="Spirit9" parent="Spirits" instance=ExtResource( 2 )]
 position = Vector2( 1130, 136 )
 
+[node name="Spirit10" parent="Spirits" instance=ExtResource( 2 )]
+position = Vector2( 1075, 514 )
+
 [node name="Spirit11" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 516, 654 )
+position = Vector2( 423, 892 )
 
 [node name="Spirit12" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 868, 637 )
-
-[node name="Spirit10" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 959, 358 )
+position = Vector2( 867, 275 )
 
 [node name="Spirit13" parent="Spirits" instance=ExtResource( 2 )]
-position = Vector2( 1179, 615 )
+position = Vector2( 891, 790 )
 
 [connection signal="grim_neared" from="Spirits/Spirit" to="." method="_on_Spirit_grim_neared"]
 [connection signal="grim_touched" from="Spirits/Spirit" to="." method="_on_Spirit_grim_touched"]
@@ -166,3 +172,11 @@ position = Vector2( 1179, 615 )
 [connection signal="grim_touched" from="Spirits/Spirit8" to="." method="_on_Spirit_grim_touched"]
 [connection signal="grim_neared" from="Spirits/Spirit9" to="." method="_on_Spirit_grim_neared"]
 [connection signal="grim_touched" from="Spirits/Spirit9" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit10" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit10" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit11" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit11" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit12" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit12" to="." method="_on_Spirit_grim_touched"]
+[connection signal="grim_neared" from="Spirits/Spirit13" to="." method="_on_Spirit_grim_neared"]
+[connection signal="grim_touched" from="Spirits/Spirit13" to="." method="_on_Spirit_grim_touched"]
