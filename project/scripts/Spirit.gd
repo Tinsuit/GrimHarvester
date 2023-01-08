@@ -42,7 +42,7 @@ func _process(delta):
 	else:
 		if randf() >= 0.3: 
 			var areas:Array = get_overlapping_areas()
-			if !areas.empty():
+			if !areas.empty() && areas[0].is_in_group("spirits"):
 				var dirs = []
 				if areas[0].position.x > position.x:
 					dirs.push_back(directions.Right)
@@ -81,4 +81,7 @@ func _on_Body_body_entered(body:Node):
 
 
 func _on_Readiness_timeout():
-	set_readiness(player.frame - 1)
+	if get_overlapping_areas().size() > 5:
+		set_readiness(player.frame + 1)
+	else:
+		set_readiness(player.frame - 1)

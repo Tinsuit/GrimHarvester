@@ -12,7 +12,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if target != null:
-		var velocity:Vector2 = (target-position).normalized() * speed * (2 if running else 1)
+		var effect = 1
+		if !$Poison.is_stopped():
+			effect = .5
+		elif running:
+			effect = 2
+			
+		var velocity:Vector2 = (target-position).normalized() * speed * effect
 		var collision = move_and_collide(velocity * delta)
 		$AnimatedSprite.flip_v = true if velocity.x < 0 else false
 		if collision != null || position.distance_to(target) < 4:
@@ -30,3 +36,6 @@ func _unhandled_input(event):
 func reset():
 	target = null
 	running = false
+
+func poison():
+	$Poison.start()

@@ -8,6 +8,8 @@ const TOTAL = 25
 
 var random = RandomNumberGenerator.new()
 
+onready var player_grim = $Trees/PlayerGrim
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in TOTAL:
@@ -18,23 +20,18 @@ func _ready():
 		$Spirits.add_child(s)
 		spirits.push_back(s)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-func _on_Spirit_grim_entered():
-	if $Trees/PlayerGrim.running == true:
-		pass
+func _on_Animal_grim_touched():
+	player_grim.poison()
 
 func _on_Spirit_grim_neared(spirit):
-	if $Trees/PlayerGrim.running == true:
-		spirit.run_away($Trees/PlayerGrim.position)
+	if player_grim.running == true:
+		spirit.run_away(player_grim.position)
 
 func _on_Spirit_grim_touched(spirit):
 	if spirit.player.frame == 0:
 		var a = Animal.instance()
 		a.position = spirit.position
+		a.connect("grim_touched", self, "_on_Animal_grim_touched")
 		call_deferred("add_child", a)
 		spirits.erase(spirit)
 		spirit.queue_free()

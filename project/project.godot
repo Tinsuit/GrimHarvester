@@ -25,7 +25,6 @@ window/stretch/aspect="expand"
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
-theme/custom="res://resources/main.tres"
 
 [input]
 
