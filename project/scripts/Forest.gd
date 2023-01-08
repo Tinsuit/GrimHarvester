@@ -12,7 +12,6 @@ var random = RandomNumberGenerator.new()
 func _ready():
 	for i in TOTAL:
 		var s = Spirit.instance()
-		randf()
 		s.position = Vector2(random.randi_range(0, 2000), random.randi_range(0, 1500))
 		s.connect("grim_neared", self, "_on_Spirit_grim_neared")
 		s.connect("grim_touched", self, "_on_Spirit_grim_touched")

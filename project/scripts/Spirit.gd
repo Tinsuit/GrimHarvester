@@ -3,7 +3,6 @@ extends Area2D
 export var speed = 40
 var dir
 var running = false
-var sensitivity
 
 signal grim_neared(spirit)
 signal grim_touched(spirit)
@@ -23,7 +22,6 @@ var directions = {
 func _ready():
 	random.randomize()
 	$AnimatedSprite.animation = "Legs" if randf() > .5 else "Tails"
-	sensitivity = randf()
 	set_readiness(random.randi_range(0, 3))
 	if player.frame == 0:
 		$Readiness.stop()
@@ -39,19 +37,22 @@ func set_readiness(i:int):
 func _process(delta):
 	if dir != null:
 		translate(dir * speed * delta * (5 if running else 1))
-	elif randf() >= 0.3: 
-		var areas:Array = get_overlapping_areas()
-		if !areas.empty():
-			var dirs = []
-			if areas[0].position.x > position.x:
-				dirs.push_back(directions.Right)
-			else:
-				dirs.push_back(directions.Left)
-			if areas[0].position.y > position.y:
-				dirs.push_back(directions.Down)
-			else:
-				dirs.push_back(directions.Up)
-			dir = dirs[randi() % dirs.size()]
+		clamp(position.x, -100, 100)
+		clamp(position.y, -100, 100)
+	else:
+		if randf() >= 0.3: 
+			var areas:Array = get_overlapping_areas()
+			if !areas.empty():
+				var dirs = []
+				if areas[0].position.x > position.x:
+					dirs.push_back(directions.Right)
+				elif areas[0].position.x < position.x:
+					dirs.push_back(directions.Left)
+				if areas[0].position.y > position.y:
+					dirs.push_back(directions.Down)
+				elif areas[0].position.y < position.y:
+					dirs.push_back(directions.Up)
+				dir = dirs[randi() % dirs.size()]
 		if dir == null:
 			dir = directions.values()[randi() % directions.size()]
 		$Run.wait_time = randf() + 0.5
