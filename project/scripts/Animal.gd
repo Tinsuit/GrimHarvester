@@ -5,17 +5,52 @@ onready var player:AnimatedSprite = $AnimatedSprite
 const SQUIRRELS = "squirrels"
 const BEARS = "bears"
 
+var dir
+
+var directions = {
+	"Up": Vector2(0, -1),
+	"Down": Vector2(0, 1),
+	"Left": Vector2(-1, 0),
+	"Right": Vector2(1, 0)
+}
+
 signal grim_touched
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.play("leaving")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	
+	if is_squirrel():
+		if dir != null:
+			run(300 * delta)
+		else:
+			if randf() < 0.7:
+				dir = Vector2(0,0)
+				player.animation = "squirrel"
+			else:
+				dir = directions.values()[randi() % directions.size()]
+				player.animation = "squirrel_run"
+			$Run.wait_time = randf() + 0.8
+			$Run.start()
+	
+	elif player.animation == "bear":
+		if dir != null:
+			run(100 * delta)
+		else:
+			dir = directions.values()[randi() % directions.size()]
+			$Run.wait_time = randf() + 0.8
+			$Run.start()
 
+func run(speed:int):
+		translate(dir * speed)
+		position.x = clamp(position.x, -1500, 2600)
+		position.y = clamp(position.y, -1100, 1300)
+		
+func is_squirrel() -> bool:
+	return player.animation == "squirrel" || player.animation == "squirrel_run"
 
 func _on_AnimatedSprite_animation_finished():
 	if player.animation == "leaving":
@@ -28,8 +63,12 @@ func _on_AnimatedSprite_animation_finished():
 			player.play("bear")
 			add_to_group(BEARS)
 
-
 func _on_Animal_body_entered(body):
-	match player.animation:
-		"squirrel", "bear":
-			emit_signal("grim_touched")
+	if body.name == "PlayerGrim" && is_animal():
+		emit_signal("grim_touched")
+
+func is_animal() -> bool:
+	return is_squirrel() ||  player.animation == "bear"
+
+func _on_Run_timeout():
+	dir = null

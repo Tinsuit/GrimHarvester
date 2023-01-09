@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://textures/sparkles-Sheet3x.png" type="Texture" id=1]
 [ext_resource path="res://textures/sprit-reaped-Sheet3x.png" type="Texture" id=2]
 [ext_resource path="res://textures/squirrel3x.png" type="Texture" id=3]
 [ext_resource path="res://scripts/Animal.gd" type="Script" id=4]
 [ext_resource path="res://textures/bear-Sheet3x.png" type="Texture" id=5]
+[ext_resource path="res://textures/squirrel-running-Sheet3x.png" type="Texture" id=6]
 
 [sub_resource type="AtlasTexture" id=15]
 flags = 4
@@ -86,6 +87,21 @@ flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 48, 48 )
 
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 96, 0, 48, 48 )
+
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
@@ -107,6 +123,11 @@ animations = [ {
 "loop": false,
 "name": "squirrel",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"loop": true,
+"name": "squirrel_run",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=14]
@@ -117,11 +138,14 @@ script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
-animation = "bear"
+animation = "squirrel_run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
 shape = SubResource( 14 )
 
+[node name="Run" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_Animal_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="Run" to="." method="_on_Run_timeout"]

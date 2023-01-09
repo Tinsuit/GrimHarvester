@@ -13,7 +13,7 @@ func _ready():
 func _physics_process(delta):
 	if target != null:
 		var effect = 1
-		if !$Poison.is_stopped():
+		if $Poison.time_left > 0:
 			effect = .5
 		elif running:
 			effect = 2
@@ -39,3 +39,10 @@ func reset():
 
 func poison():
 	$Poison.start()
+	$AnimatedSprite.play("hurt")
+
+func _on_Poison_timeout():
+	$AnimatedSprite.animation = "default"
+	$AnimatedSprite.stop()
+	$AnimatedSprite.frame = 2
+
