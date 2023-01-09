@@ -483,7 +483,7 @@ margin_top = -68.0
 margin_right = -52.0
 margin_bottom = 64.0
 rect_scale = Vector2( 2, 2 )
-text = "Find Spirits that are ready to be harvested:
+text = "Find spirits that are ready to be harvested:
 
 
 If they are not ready yet, trying to harvest them will make them less ready:"
@@ -520,43 +520,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Talky4" type="Node2D" parent="."]
-position = Vector2( 1664, 688 )
-z_index = 1
-script = ExtResource( 6 )
-
-[node name="Qu" type="Control" parent="Talky4"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Label" type="Label" parent="Talky4/Qu"]
-margin_right = 40.0
-margin_bottom = 17.0
-rect_scale = Vector2( 2, 2 )
-text = "????"
-
-[node name="Answer" type="Control" parent="Talky4"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Label" type="Label" parent="Talky4/Answer"]
-margin_left = -158.0
-margin_top = -47.0
-margin_right = 64.0
-margin_bottom = 117.0
-rect_scale = Vector2( 2, 2 )
-text = "Spirits that spend too much time together may become less ready"
-autowrap = true
-
-[node name="Area2D" type="Area2D" parent="Talky4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Talky4/Area2D"]
-shape = SubResource( 14 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="Talky3" type="Node2D" parent="."]
 position = Vector2( -140, 795 )
 z_index = 1
@@ -577,13 +540,13 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Label" type="Label" parent="Talky3/Answer"]
-margin_left = -170.0
-margin_top = -94.0
-margin_right = 203.0
-margin_bottom = 70.0
+margin_left = -181.0
+margin_top = -95.0
+margin_right = 192.0
+margin_bottom = 69.0
 rect_scale = Vector2( 2, 2 )
-text = "Live animal are dangerous
-Watch Out!"
+text = "Live animals are dangerous.
+Watch out!"
 autowrap = true
 
 [node name="Legs" type="Sprite" parent="Talky3/Answer"]
@@ -629,8 +592,8 @@ margin_top = -13.0
 margin_right = 35.0
 margin_bottom = 25.0
 rect_scale = Vector2( 2, 2 )
-text = "Tap the screen to run
-Drag to walk"
+text = "Tap the screen to run.
+Drag to walk."
 autowrap = true
 
 [node name="Area2D" type="Area2D" parent="Talky2"]
@@ -645,9 +608,11 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -91.5
-margin_top = -14.0
-margin_right = 91.5
+margin_left = -417.0
+margin_top = -108.0
+margin_right = 423.0
+margin_bottom = -94.0
+rect_scale = Vector2( 3, 3 )
 text = "YOUR HARVEST IS COMPLETE"
 
 [node name="Position2D" type="Position2D" parent="."]
@@ -656,8 +621,6 @@ position = Vector2( -26, 1448 )
 [connection signal="timeout" from="Trees/PlayerGrim/Poison" to="Trees/PlayerGrim" method="_on_Poison_timeout"]
 [connection signal="body_entered" from="Talky/Area2D" to="Talky" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Talky/Area2D" to="Talky" method="_on_Area2D_body_exited"]
-[connection signal="body_entered" from="Talky4/Area2D" to="Talky4" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Talky4/Area2D" to="Talky4" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Talky3/Area2D" to="Talky3" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Talky3/Area2D" to="Talky3" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Talky2/Area2D" to="Talky2" method="_on_Area2D_body_entered"]

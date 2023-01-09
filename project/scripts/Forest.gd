@@ -41,6 +41,9 @@ func _on_Spirit_grim_touched(spirit):
 			$Win.show()
 			$Trees/PlayerGrim.rotation_degrees = 0
 			get_tree().paused = true
+		elif spirits.size() <= 3:
+			for s in spirits:
+				spirit.set_readiness(spirit.player.frame - 1)
 	else:
 		spirit.set_readiness(spirit.player.frame + 1)
 	$Trees/PlayerGrim/AnimatedSprite.frame = 0
