@@ -24,17 +24,16 @@ func _physics_process(delta):
 		if collision != null || position.distance_to(target) < 4:
 			reset()
 			
-func _unhandled_input(event):
+func _unhandled_input(event:InputEvent):
 	if event is InputEventScreenDrag:
-		var drag:InputEventScreenDrag = event
 		target = (global_position - (get_viewport_rect().size / 2)) + event.position
 		look_at(target)
+		
 	elif event is InputEventScreenTouch:
-		var touch: InputEventScreenTouch = event
-		print("touch: " + str(touch))
-		target = (global_position - (get_viewport_rect().size / 2)) + touch.position
+		print("touch: " + str(event))
+		target = (global_position - (get_viewport_rect().size / 2)) + event.position
 		look_at(target)
-		if touch.pressed == true:
+		if event.pressed == true:
 			$Touch.start()
 			running = false
 		else:

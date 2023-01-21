@@ -1,7 +1,7 @@
 extends Node2D
 
-var Animal = preload("res://Animal.tscn")
-var Spirit = preload("res://Spirit.tscn")
+var Animal = preload("res://scenes/Animal.tscn")
+var Spirit = preload("res://scenes/Spirit.tscn")
 
 var spirits = []
 const TOTAL = 75

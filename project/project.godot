@@ -11,12 +11,12 @@ config_version=4
 [application]
 
 config/name="GrimHarvester"
-run/main_scene="res://Forest.tscn"
+run/main_scene="res://World.tscn"
 config/icon="res://textures/icon.png"
 
 [display]
 
-window/size/width=840
+window/size/width=1680
 window/size/height=840
 window/stretch/mode="2d"
 window/stretch/aspect="expand"

@@ -1,18 +1,15 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://scripts/PlayerGrim.gd" type="Script" id=1]
-[ext_resource path="res://Tree.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/PlayerGrim.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Tree.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Forest.gd" type="Script" id=3]
 [ext_resource path="res://textures/ground3x.png" type="Texture" id=4]
 [ext_resource path="res://textures/ground-leaves3x.png" type="Texture" id=5]
 [ext_resource path="res://scripts/Talky.gd" type="Script" id=6]
-[ext_resource path="res://textures/grim-animated-Sheet3x.png" type="Texture" id=7]
 [ext_resource path="res://textures/spirits3x.png" type="Texture" id=8]
 [ext_resource path="res://textures/water tilemap 3x.png" type="Texture" id=9]
 [ext_resource path="res://textures/bear-Sheet3x.png" type="Texture" id=10]
 [ext_resource path="res://textures/squirrel3x.png" type="Texture" id=11]
-[ext_resource path="res://textures/grim-happy3x.png" type="Texture" id=12]
-[ext_resource path="res://textures/grim-hurt-Sheet3x.png" type="Texture" id=13]
 
 [sub_resource type="TileSet" id=9]
 0/name = "ground3x.png 0"
@@ -67,58 +64,6 @@
 2/shapes = [  ]
 2/z_index = 0
 
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 96, 0, 96, 96 )
-
-[sub_resource type="AtlasTexture" id=12]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 192, 0, 96, 96 )
-
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 96, 96 )
-
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 0, 0, 108, 96 )
-
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 0, 0, 96, 96 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 96, 0, 96, 96 )
-
-[sub_resource type="SpriteFrames" id=8]
-animations = [ {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
-"loop": false,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 15 ) ],
-"loop": true,
-"name": "happy",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 16 ), SubResource( 17 ) ],
-"loop": true,
-"name": "hurt",
-"speed": 5.0
-} ]
-
-[sub_resource type="CapsuleShape2D" id=4]
-radius = 24.0
-height = 24.0
-
 [sub_resource type="CircleShape2D" id=14]
 radius = 191.003
 
@@ -136,27 +81,7 @@ __meta__ = {
 
 [node name="Trees" type="YSort" parent="."]
 
-[node name="PlayerGrim" type="KinematicBody2D" parent="Trees"]
-script = ExtResource( 1 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Trees/PlayerGrim"]
-position = Vector2( -25, -57 )
-frames = SubResource( 8 )
-centered = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/PlayerGrim"]
-position = Vector2( 0, -20 )
-shape = SubResource( 4 )
-
-[node name="Camera2D" type="Camera2D" parent="Trees/PlayerGrim"]
-current = true
-
-[node name="Poison" type="Timer" parent="Trees/PlayerGrim"]
-wait_time = 2.0
-one_shot = true
-
-[node name="Touch" type="Timer" parent="Trees/PlayerGrim"]
-wait_time = 0.5
+[node name="PlayerGrim" parent="Trees" instance=ExtResource( 1 )]
 
 [node name="Tree" parent="Trees" instance=ExtResource( 2 )]
 position = Vector2( -195, -61 )
@@ -621,7 +546,6 @@ text = "YOUR HARVEST IS COMPLETE"
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( -26, 1448 )
 
-[connection signal="timeout" from="Trees/PlayerGrim/Poison" to="Trees/PlayerGrim" method="_on_Poison_timeout"]
 [connection signal="body_entered" from="Talky/Area2D" to="Talky" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Talky/Area2D" to="Talky" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Talky3/Area2D" to="Talky3" method="_on_Area2D_body_entered"]
