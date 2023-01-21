@@ -43,6 +43,11 @@ func _process(delta):
 			dir = directions.values()[randi() % directions.size()]
 			$Run.wait_time = randf() + 0.8
 			$Run.start()
+	
+	if dir == directions.Left:
+		player.flip_h = false
+	elif dir == directions.Right:
+		player.flip_h = true
 
 func run(speed:int):
 		translate(dir * speed)

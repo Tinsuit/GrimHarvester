@@ -55,6 +55,10 @@ func _process(delta):
 				dir = dirs[randi() % dirs.size()]
 		if dir == null:
 			dir = directions.values()[randi() % directions.size()]
+			if dir == directions.Left:
+				player.flip_h = false
+			elif dir == directions.Right:
+				player.flip_h = true
 		$Run.wait_time = randf() + 0.5
 		$Run.start()
 		

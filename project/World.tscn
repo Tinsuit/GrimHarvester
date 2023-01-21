@@ -11,10 +11,10 @@ radius = 62.1289
 script = ExtResource( 2 )
 
 [node name="PlayerGrim" parent="." instance=ExtResource( 1 )]
-position = Vector2( 843, 424 )
+position = Vector2( 424, 426 )
 
 [node name="Tree" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1364, 232 )
+position = Vector2( 730, 160 )
 
 [node name="Label" type="Label" parent="Tree"]
 margin_left = -15.0
