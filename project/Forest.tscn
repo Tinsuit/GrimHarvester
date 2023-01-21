@@ -155,6 +155,9 @@ current = true
 wait_time = 2.0
 one_shot = true
 
+[node name="Touch" type="Timer" parent="Trees/PlayerGrim"]
+wait_time = 0.5
+
 [node name="Tree" parent="Trees" instance=ExtResource( 2 )]
 position = Vector2( -195, -61 )
 

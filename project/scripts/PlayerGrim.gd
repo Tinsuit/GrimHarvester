@@ -26,12 +26,23 @@ func _physics_process(delta):
 			
 func _unhandled_input(event):
 	if event is InputEventScreenDrag:
+		var drag:InputEventScreenDrag = event
 		target = (global_position - (get_viewport_rect().size / 2)) + event.position
 		look_at(target)
 	elif event is InputEventScreenTouch:
-		target = (global_position - (get_viewport_rect().size / 2)) + event.position
+		var touch: InputEventScreenTouch = event
+		print("touch: " + str(touch))
+		target = (global_position - (get_viewport_rect().size / 2)) + touch.position
 		look_at(target)
-		running = true
+		if touch.pressed == true:
+			$Touch.start()
+			running = false
+		else:
+			if $Touch.time_left > 0:
+				running = true
+			else:
+				running = false
+				$Touch.stop()
 
 func reset():
 	target = null
