@@ -4,10 +4,18 @@ extends KinematicBody2D
 export var speed:int = 150
 var target
 var running = false
+onready var player:AnimatedSprite = $AnimatedSprite
+
+const default_pos = Vector2(24, 10)
+const default_pos_left = Vector2(24, -10)
+const hurt_pos = Vector2(-24, -10)
+const hurt_pos_right = Vector2(-24, 10)
+const happy_pos = Vector2(-16, -12)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimatedSprite.frame = 2
+	player.frame = 2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -20,7 +28,18 @@ func _physics_process(delta):
 			
 		var velocity:Vector2 = (target-position).normalized() * speed * effect
 		var collision = move_and_collide(velocity * delta)
-		$AnimatedSprite.flip_v = true if velocity.x < 0 else false
+		if velocity.x < 0:
+			if player.animation == "default":
+				player.position = default_pos_left
+			elif player.animation == "hurt":
+				player.position = hurt_pos
+		else:
+			if player.animation == "default":
+				player.position = default_pos
+			elif player.animation == "hurt":
+				player.position = hurt_pos_right
+			
+		player.flip_v = true if velocity.x < 0 else false
 		if collision != null || position.distance_to(target) < 4:
 			reset()
 			
@@ -30,7 +49,6 @@ func _unhandled_input(event:InputEvent):
 		look_at(target)
 		
 	elif event is InputEventScreenTouch:
-		print("touch: " + str(event))
 		target = (global_position - (get_viewport_rect().size / 2)) + event.position
 		look_at(target)
 		if event.pressed == true:
@@ -49,10 +67,12 @@ func reset():
 
 func poison():
 	$Poison.start()
-	$AnimatedSprite.play("hurt")
+	player.play("hurt")
+	player.position = hurt_pos
 
 func _on_Poison_timeout():
-	$AnimatedSprite.animation = "default"
-	$AnimatedSprite.stop()
-	$AnimatedSprite.frame = 2
+	player.animation = "default"
+	player.position = default_pos
+	player.stop()
+	player.frame = 2
 

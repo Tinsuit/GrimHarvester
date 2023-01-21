@@ -61,12 +61,10 @@ height = 24.0
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -25, -57 )
+position = Vector2( 24, 9 )
 frames = SubResource( 8 )
-centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -20 )
 shape = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -78,5 +76,9 @@ one_shot = true
 
 [node name="Touch" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 10.0
+margin_bottom = 10.0
 
 [connection signal="timeout" from="Poison" to="." method="_on_Poison_timeout"]

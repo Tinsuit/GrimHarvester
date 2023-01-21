@@ -29,7 +29,7 @@ func _on_Spirit_grim_neared(spirit):
 		spirit.run_away(player_grim.position)
 
 func _on_Spirit_grim_touched(spirit):
-	if spirit.player.frame == 0 && $Trees/PlayerGrim/AnimatedSprite.animation != "hurt":
+	if spirit.player.frame == 0:
 		var a = Animal.instance()
 		a.position = spirit.position
 		a.connect("grim_touched", self, "_on_Animal_grim_touched")
@@ -38,6 +38,7 @@ func _on_Spirit_grim_touched(spirit):
 		spirit.queue_free()
 		if spirits.empty():
 			$Trees/PlayerGrim/AnimatedSprite.play("happy")
+			$Trees/PlayerGrim/AnimatedSprite.position = $Trees/PlayerGrim.happy_pos
 			$Win.show()
 			$Trees/PlayerGrim.rotation_degrees = 0
 			get_tree().paused = true
@@ -48,3 +49,4 @@ func _on_Spirit_grim_touched(spirit):
 		spirit.set_readiness(spirit.player.frame + 1)
 	$Trees/PlayerGrim/AnimatedSprite.frame = 0
 	$Trees/PlayerGrim/AnimatedSprite.play()
+	$Trees/PlayerGrim/AnimatedSprite.position = $Trees/PlayerGrim.default_pos
