@@ -73,6 +73,8 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 672, 624 )
 frames = SubResource( 8 )
+frame = 2
+playing = true
 
 [node name="Label" type="Label" parent="AnimatedSprite"]
 margin_left = -46.0

@@ -10,8 +10,10 @@ var random = RandomNumberGenerator.new()
 
 onready var player_grim = $Trees/PlayerGrim
 
+onready var arrow = $Arrow
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	remove_child(arrow)
 	for i in TOTAL:
 		var s = Spirit.instance()
 		s.position = Vector2(random.randi_range(-1600, 2700), random.randi_range(-1200, 1400))
@@ -42,9 +44,15 @@ func _on_Spirit_grim_touched(spirit):
 			$Win.show()
 			$Trees/PlayerGrim.rotation_degrees = 0
 			get_tree().paused = true
-		elif spirits.size() <= 3:
-			for s in spirits:
-				spirit.set_readiness(spirit.player.frame - 1)
+		else:
+			var a_spirit = spirits[0].position
+			var arrow_dir = player_grim.get_angle_to(a_spirit)
+			add_child(arrow)
+			arrow.position = player_grim.position
+			arrow.look_at(a_spirit)
+			if spirits.size() <= 3:
+				for s in spirits:
+					spirit.set_readiness(spirit.player.frame - 1)
 	else:
 		spirit.set_readiness(spirit.player.frame + 1)
 	$Trees/PlayerGrim/AnimatedSprite.frame = 0
