@@ -20,4 +20,6 @@ func _ready():
 
 func _on_Exit_body_entered(body):
 	if body.name == "PlayerGrim":
-		get_tree().change_scene("res://World.tscn")
+		var err = get_tree().change_scene("res://World.tscn")
+		if err != OK:
+			print(err)

@@ -2,7 +2,7 @@ extends Node2D
 
 
 var Forest = preload("res://Forest.tscn")
-var Wetlands = preload("res://Wetlands.tscn")
+var Wetlands = preload("res://WetlandsV2.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,10 +17,14 @@ func _ready():
 
 func _on_Forest_body_entered(body):
 	if body.name == "PlayerGrim":
-		get_tree().change_scene_to(Forest)
+		var err = get_tree().change_scene_to(Forest)
+		if err != OK:
+			print(err)
 
 
 
 func _on_Wetlands_body_entered(body):
 	if body.name == "PlayerGrim":
-		get_tree().change_scene_to(Wetlands)
+		var err = get_tree().change_scene_to(Wetlands)
+		if err != OK:
+			print(err)
