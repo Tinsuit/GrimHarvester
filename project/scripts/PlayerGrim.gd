@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+class_name PlayerGrim, "res://textures/icon.png"
 
 export var speed:int = 150
 var target

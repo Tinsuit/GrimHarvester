@@ -1,6 +1,6 @@
 extends Node2D
 
-var Animal = preload("res://scenes/Animal.tscn")
+var Animal = preload("res://scenes/ForestAnimal.tscn")
 var Spirit = preload("res://scenes/Spirit.tscn")
 
 var spirits = []
@@ -8,7 +8,7 @@ const TOTAL = 75
 
 var random = RandomNumberGenerator.new()
 
-onready var player_grim = $Trees/PlayerGrim
+onready var player_grim := $Trees/PlayerGrim as PlayerGrim
 
 onready var arrow = $Arrow
 # Called when the node enters the scene tree for the first time.

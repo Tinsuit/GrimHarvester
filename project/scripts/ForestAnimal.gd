@@ -1,5 +1,8 @@
 extends Area2D
 
+
+class_name ForestAnimal, "res://textures/squirrel3x.png"
+
 onready var player:AnimatedSprite = $AnimatedSprite
 
 const SQUIRRELS = "squirrels"

@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "ForestAnimal",
+"language": "GDScript",
+"path": "res://scripts/ForestAnimal.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "PlayerGrim",
+"language": "GDScript",
+"path": "res://scripts/PlayerGrim.gd"
+} ]
+_global_script_class_icons={
+"ForestAnimal": "res://textures/squirrel3x.png",
+"PlayerGrim": "res://textures/icon.png"
+}
+
 [application]
 
 config/name="GrimHarvester"
