@@ -146,6 +146,6 @@ shape = SubResource( 14 )
 
 [node name="Run" type="Timer" parent="."]
 
-[connection signal="body_entered" from="." to="." method="_on_Animal_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_ForestAnimal_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="Run" to="." method="_on_Run_timeout"]

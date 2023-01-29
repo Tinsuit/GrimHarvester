@@ -73,6 +73,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 672, 624 )
 frames = SubResource( 8 )
+frame = 5
 playing = true
 
 [node name="Label" type="Label" parent="AnimatedSprite"]
@@ -86,6 +87,8 @@ text = "Leave for Wetlands"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite/Wetlands"]
 shape = SubResource( 9 )
+
+[node name="Spirits" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="Tree/Forest" to="." method="_on_Forest_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite/Wetlands" to="." method="_on_Wetlands_body_entered"]

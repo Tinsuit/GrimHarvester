@@ -71,12 +71,13 @@ func _on_AnimatedSprite_animation_finished():
 			player.play("bear")
 			add_to_group(BEARS)
 
-func _on_Animal_body_entered(body):
-	if body.name == "PlayerGrim" && is_animal():
-		emit_signal("grim_touched")
-
 func is_animal() -> bool:
 	return is_squirrel() ||  player.animation == "bear"
 
 func _on_Run_timeout():
 	dir = null
+
+
+func _on_ForestAnimal_body_entered(body: Node):
+	if body.name == "PlayerGrim" && is_animal():
+		emit_signal("grim_touched")

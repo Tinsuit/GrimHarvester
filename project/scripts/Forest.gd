@@ -3,7 +3,6 @@ extends Node2D
 var Animal = preload("res://scenes/ForestAnimal.tscn")
 var Spirit = preload("res://scenes/Spirit.tscn")
 
-var spirits = []
 const TOTAL = 75
 
 var random = RandomNumberGenerator.new()
@@ -20,7 +19,6 @@ func _ready():
 		s.connect("grim_neared", self, "_on_Spirit_grim_neared")
 		s.connect("grim_touched", self, "_on_Spirit_grim_touched")
 		$Spirits.add_child(s)
-		spirits.push_back(s)
 		$Win.hide()
 
 func _on_Animal_grim_touched():
@@ -36,22 +34,22 @@ func _on_Spirit_grim_touched(spirit):
 		a.position = spirit.position
 		a.connect("grim_touched", self, "_on_Animal_grim_touched")
 		call_deferred("add_child", a)
-		spirits.erase(spirit)
 		spirit.queue_free()
-		if spirits.empty():
+		var count_left = $Spirits.get_child_count()
+		if count_left == 0:
 			$Trees/PlayerGrim/AnimatedSprite.play("happy")
 			$Trees/PlayerGrim/AnimatedSprite.position = $Trees/PlayerGrim.happy_pos
 			$Win.show()
 			$Trees/PlayerGrim.rotation_degrees = 0
 			get_tree().paused = true
 		else:
-			var a_spirit = spirits[0].position
+			var a_spirit = $Spirits.get_child(0).position
 			var arrow_dir = player_grim.get_angle_to(a_spirit)
 			add_child(arrow)
 			arrow.position = player_grim.position
 			arrow.look_at(a_spirit)
-			if spirits.size() <= 3:
-				for s in spirits:
+			if count_left <= 3:
+				for s in $Spirits.get_children():
 					spirit.set_readiness(spirit.player.frame - 1)
 	else:
 		spirit.set_readiness(spirit.player.frame + 1)
