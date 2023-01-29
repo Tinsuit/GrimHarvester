@@ -3,6 +3,7 @@ extends Node2D
 
 var Forest = preload("res://Forest.tscn")
 var Wetlands = preload("res://WetlandsV2.tscn")
+var Mountain = preload("res://Mountain.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,5 +27,12 @@ func _on_Forest_body_entered(body):
 func _on_Wetlands_body_entered(body):
 	if body.name == "PlayerGrim":
 		var err = get_tree().change_scene_to(Wetlands)
+		if err != OK:
+			print(err)
+
+
+func _on_Mountain_body_entered(body):
+	if body.name == "PlayerGrim":
+		var err = get_tree().change_scene_to(Mountain)
 		if err != OK:
 			print(err)
