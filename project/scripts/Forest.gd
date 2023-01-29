@@ -48,6 +48,7 @@ func _on_Spirit_grim_touched(spirit):
 			add_child(arrow)
 			arrow.position = player_grim.position
 			arrow.look_at(a_spirit)
+			arrow.play()
 			if count_left <= 3:
 				for s in $Spirits.get_children():
 					spirit.set_readiness(spirit.player.frame - 1)

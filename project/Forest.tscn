@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/PlayerGrim.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Tree.tscn" type="PackedScene" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://textures/water tilemap 3x.png" type="Texture" id=9]
 [ext_resource path="res://textures/bear-Sheet3x.png" type="Texture" id=10]
 [ext_resource path="res://textures/squirrel3x.png" type="Texture" id=11]
-[ext_resource path="res://textures/arrow.png" type="Texture" id=12]
+[ext_resource path="res://textures/sparkles-moving-Sheet.png" type="Texture" id=12]
 
 [sub_resource type="TileSet" id=9]
 0/name = "ground3x.png 0"
@@ -71,6 +71,89 @@ radius = 191.003
 
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 39.5, 39 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 48, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 96, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 144, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 192, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 240, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 288, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 336, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 384, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 432, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 480, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 528, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 576, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 624, 144, 48 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 672, 144, 48 )
+
+[sub_resource type="SpriteFrames" id=31]
+animations = [ {
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Forest" type="Node2D"]
 script = ExtResource( 3 )
@@ -650,8 +733,8 @@ margin_right = 80.0
 margin_bottom = 80.0
 color = Color( 0.184314, 0.0313726, 0.0313726, 1 )
 
-[node name="Arrow" type="Sprite" parent="."]
-texture = ExtResource( 12 )
+[node name="Arrow" type="AnimatedSprite" parent="."]
+frames = SubResource( 31 )
 
 [connection signal="body_entered" from="Talky/Area2D" to="Talky" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Talky/Area2D" to="Talky" method="_on_Area2D_body_exited"]
