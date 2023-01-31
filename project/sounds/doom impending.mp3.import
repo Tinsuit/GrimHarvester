@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/doom impending.mp3-0116d86487f4fd52a79beb8378cffcf0.mp3str"
+
+[deps]
+
+source_file="res://sounds/doom impending.mp3"
+dest_files=[ "res://.import/doom impending.mp3-0116d86487f4fd52a79beb8378cffcf0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
