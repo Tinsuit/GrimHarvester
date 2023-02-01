@@ -64,6 +64,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Welanders"
 2d_physics/layer_3="Wet Land"
+2d_physics/layer_4="Grass"
 
 [physics]
 

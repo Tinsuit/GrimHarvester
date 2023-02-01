@@ -21,19 +21,18 @@ var lost_at_land := false
 func _ready():
 	player.play("leaving")
 
-func run(speed:int):
+func run(delta:float):
 		if is_animal():
-			var collision:KinematicCollision2D = move_and_collide(dir * speed)
-			if collision != null && collision.get_collider().name == "PlayerGrim":
-				emit_signal("grim_touched")
-				
-var rays = [Vector2(150, 0), Vector2(-150, 0), Vector2(0, 150), Vector2(0, -150)]
-		
+			var collision:KinematicCollision2D = move_and_collide(dir * speed * delta)
+			if collision != null:
+				if collision.get_collider().name == "PlayerGrim":
+					emit_signal("grim_touched")
+		 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if player.animation == "duck":
 		if dir != null:
-			run(speed * delta)
+			run(delta)
 		else:
 			dir = directions.values()[randi() % directions.size()]
 			$Run.wait_time = randf() + 0.8
@@ -45,7 +44,7 @@ func _process(delta):
 			
 	elif player.animation == "turtle":
 		if dir != null:
-			run(speed * delta)
+			run(delta)
 		else:
 			if randf() < 0.7:
 				speed = 50
@@ -72,14 +71,14 @@ func _on_AnimatedSprite_animation_finished():
 		if lost_at_land:
 			for a in $LostAtLand.get_children():
 				assert(a is Area2D)
-				var bodies = a.get_overlapping_bodies()
 				if a.get_overlapping_bodies().empty():
 					position = position+a.position
 					lost_at_land = false
-					return
+					break
 			if lost_at_land == true:
 				print("Teleporting from " + str(position) + " to 0, 0")
 				position = Vector2.ZERO
+		$LostAtLand.queue_free()
 				
 	elif player.animation == "sparkling":
 		
@@ -89,6 +88,9 @@ func _on_AnimatedSprite_animation_finished():
 		else:
 			player.play("turtle")
 			speed = 300
-			
-		
 
+
+func _on_Hitbox_body_entered(body):
+	if player.animation == "duck" || player.animation == "turtle":
+		if body.name == "PlayerGrim":
+			emit_signal("grim_touched")
