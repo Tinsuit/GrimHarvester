@@ -20,7 +20,7 @@ var directions = {
 	"Right": Vector2(1, 0)
 }
 
-var bounds = {"x": {"left":-1600, "right":2700}, "y": {"up": -1200, "down":1400} }
+var bounds = {"left":-1600, "right":2700, "up": -1200, "down":1400}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,8 +42,8 @@ func set_readiness(i:int):
 func _process(delta):
 	if dir != null:
 		translate(dir * speed * delta * (5 if running else 1))
-		position.x = clamp(position.x, -1600, 7200)
-		position.y = clamp(position.y, -1200, 1400)
+		position.x = clamp(position.x, bounds.left, bounds.right)
+		position.y = clamp(position.y, bounds.up, bounds.down)
 	else:
 		if randf() >= 0.3: 
 			var areas:Array = get_overlapping_areas()
