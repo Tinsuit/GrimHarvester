@@ -57,6 +57,7 @@ radius = 164.012
 radius = 15.0
 
 [node name="Spirit" type="Area2D" groups=["spirits"]]
+collision_mask = 5
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

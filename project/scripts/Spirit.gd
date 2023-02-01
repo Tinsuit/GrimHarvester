@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Spirit
+
 export var speed = 40
 var dir
 var running = false
@@ -18,6 +20,8 @@ var directions = {
 	"Right": Vector2(1, 0)
 }
 
+var bounds = {"x": {"left":-1600, "right":2700}, "y": {"up": -1200, "down":1400} }
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	random.randomize()
@@ -33,11 +37,12 @@ func set_readiness(i:int):
 	else:
 		$Readiness.start()
 	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if dir != null:
 		translate(dir * speed * delta * (5 if running else 1))
-		position.x = clamp(position.x, -1600, 2700)
+		position.x = clamp(position.x, -1600, 7200)
 		position.y = clamp(position.y, -1200, 1400)
 	else:
 		if randf() >= 0.3: 
@@ -46,11 +51,11 @@ func _process(delta):
 				var dirs = []
 				if areas[0].position.x > position.x:
 					dirs.push_back(directions.Right)
-				elif areas[0].position.x < position.x:
+				elif areas[0].position.x <= position.x:
 					dirs.push_back(directions.Left)
 				if areas[0].position.y > position.y:
 					dirs.push_back(directions.Down)
-				elif areas[0].position.y < position.y:
+				elif areas[0].position.y <= position.y:
 					dirs.push_back(directions.Up)
 				dir = dirs[randi() % dirs.size()]
 		if dir == null:
@@ -73,7 +78,13 @@ func run_away(pos:Vector2):
 	$Run.wait_time = randf() + 0.5
 	$Run.start()
 	running = true
-
+	
+func is_on_land() -> bool:
+	var bodies:Array = get_overlapping_bodies()
+	for b in bodies:
+		if b.name == "PlayerGrim": continue
+		return true
+	return false
 
 func _on_Aura_Area2D_body_entered(body:Node):
 	if body.name == "PlayerGrim":

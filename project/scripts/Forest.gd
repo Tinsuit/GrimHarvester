@@ -36,22 +36,23 @@ func _on_Spirit_grim_touched(spirit):
 		call_deferred("add_child", a)
 		spirit.queue_free()
 		var count_left = $Spirits.get_child_count()
-		if count_left == 0:
+		#spirit hasn't been removed yet
+		if count_left <= 1:
 			$Trees/PlayerGrim/AnimatedSprite.play("happy")
 			$Trees/PlayerGrim/AnimatedSprite.position = $Trees/PlayerGrim.happy_pos
 			$Win.show()
-			$Trees/PlayerGrim.rotation_degrees = 0
 			get_tree().paused = true
 		else:
-			var a_spirit = $Spirits.get_child(0).position
-			var arrow_dir = player_grim.get_angle_to(a_spirit)
+			var a_spirit := $Spirits.get_child(0)
+			if (a_spirit == spirit):
+				a_spirit = $Spirits.get_child(1)
 			add_child(arrow)
 			arrow.position = player_grim.position
 			arrow.look_at(a_spirit)
 			arrow.play()
-			if count_left <= 3:
+			if count_left <= 4:
 				for s in $Spirits.get_children():
-					spirit.set_readiness(spirit.player.frame - 1)
+					s.set_readiness(s.player.frame - 1)
 	else:
 		spirit.set_readiness(spirit.player.frame + 1)
 	$Trees/PlayerGrim/AnimatedSprite.frame = 0

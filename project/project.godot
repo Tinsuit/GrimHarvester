@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "PlayerGrim",
 "language": "GDScript",
 "path": "res://scripts/PlayerGrim.gd"
+}, {
+"base": "Area2D",
+"class": "Spirit",
+"language": "GDScript",
+"path": "res://scripts/Spirit.gd"
 } ]
 _global_script_class_icons={
 "ForestAnimal": "res://textures/squirrel3x.png",
-"PlayerGrim": "res://textures/icon.png"
+"PlayerGrim": "res://textures/icon.png",
+"Spirit": ""
 }
 
 [application]
@@ -57,6 +63,7 @@ pointing/emulate_touch_from_mouse=true
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Welanders"
+2d_physics/layer_3="Wet Land"
 
 [physics]
 

@@ -98,7 +98,6 @@ animations = [ {
 radius = 14.0357
 
 [sub_resource type="CircleShape2D" id=18]
-radius = 15.0
 
 [node name="WetlandAnimal" type="KinematicBody2D"]
 collision_layer = 2
@@ -116,83 +115,104 @@ shape = SubResource( 17 )
 
 [node name="Run" type="Timer" parent="."]
 
-[node name="LostAtLand" type="Node" parent="."]
-
-[node name="Area2D" type="Area2D" parent="LostAtLand"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/Area2D"]
-shape = SubResource( 18 )
-
-[node name="N" type="Area2D" parent="LostAtLand"]
-position = Vector2( 0, -50 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/N"]
-shape = SubResource( 18 )
-
-[node name="N2" type="Area2D" parent="LostAtLand"]
-position = Vector2( 0, -100 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/N2"]
-shape = SubResource( 18 )
-
-[node name="N3" type="Area2D" parent="LostAtLand"]
-position = Vector2( 0, -150 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/N3"]
-shape = SubResource( 18 )
-
-[node name="S" type="Area2D" parent="LostAtLand"]
-position = Vector2( 0, 50 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/S"]
-shape = SubResource( 18 )
-
-[node name="S2" type="Area2D" parent="LostAtLand"]
-position = Vector2( 0, 100 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/S2"]
-shape = SubResource( 18 )
-
-[node name="S3" type="Area2D" parent="LostAtLand"]
-position = Vector2( 0, 150 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/S3"]
-shape = SubResource( 18 )
-
-[node name="W" type="Area2D" parent="LostAtLand"]
-position = Vector2( -50, 0 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/W"]
-shape = SubResource( 18 )
-
-[node name="W2" type="Area2D" parent="LostAtLand"]
-position = Vector2( -150, 0 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/W2"]
-shape = SubResource( 18 )
-
-[node name="W3" type="Area2D" parent="LostAtLand"]
-position = Vector2( -100, 0 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/W3"]
-shape = SubResource( 18 )
-
-[node name="E" type="Area2D" parent="LostAtLand"]
-position = Vector2( 51, -1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/E"]
-shape = SubResource( 18 )
+[node name="LostAtLand" type="Node2D" parent="."]
 
 [node name="E2" type="Area2D" parent="LostAtLand"]
-position = Vector2( 100, -1 )
+position = Vector2( 75, 0 )
+collision_layer = 4
+collision_mask = 4
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/E2"]
 shape = SubResource( 18 )
 
+[node name="W2" type="Area2D" parent="LostAtLand"]
+position = Vector2( -75, 0 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/W2"]
+shape = SubResource( 18 )
+
+[node name="S2" type="Area2D" parent="LostAtLand"]
+position = Vector2( 0, 75 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/S2"]
+shape = SubResource( 18 )
+
+[node name="N2" type="Area2D" parent="LostAtLand"]
+position = Vector2( 0, -75 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/N2"]
+shape = SubResource( 18 )
+
+[node name="E" type="Area2D" parent="LostAtLand"]
+position = Vector2( 150, 0 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/E"]
+shape = SubResource( 18 )
+
+[node name="W" type="Area2D" parent="LostAtLand"]
+position = Vector2( -150, 0 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/W"]
+shape = SubResource( 18 )
+
+[node name="S" type="Area2D" parent="LostAtLand"]
+position = Vector2( 0, 150 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/S"]
+shape = SubResource( 18 )
+
+[node name="N" type="Area2D" parent="LostAtLand"]
+position = Vector2( 0, -150 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/N"]
+shape = SubResource( 18 )
+
+[node name="S3" type="Area2D" parent="LostAtLand"]
+position = Vector2( 0, 225 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/S3"]
+shape = SubResource( 18 )
+
+[node name="W3" type="Area2D" parent="LostAtLand"]
+position = Vector2( -225, 0 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/W3"]
+shape = SubResource( 18 )
+
 [node name="E3" type="Area2D" parent="LostAtLand"]
-position = Vector2( 150, -1 )
+position = Vector2( 225, 0 )
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/E3"]
+shape = SubResource( 18 )
+
+[node name="N3" type="Area2D" parent="LostAtLand"]
+position = Vector2( 0, -225 )
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LostAtLand/N3"]
 shape = SubResource( 18 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
