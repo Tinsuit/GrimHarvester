@@ -1,13 +1,13 @@
 extends Node2D
 
-var Animal = preload("res://scenes/ForestAnimal.tscn")
+var Animal = preload("res://scenes/MountainGoat.tscn")
 var Spirit = preload("res://scenes/Spirit.tscn")
 
 const TOTAL = 75
 
 var random = RandomNumberGenerator.new()
 
-onready var player_grim := $Trees/PlayerGrim as PlayerGrim
+onready var player_grim := $PlayerGrim as PlayerGrim
 
 onready var arrow = $Arrow
 # Called when the node enters the scene tree for the first time.
@@ -35,26 +35,26 @@ func _on_Spirit_grim_touched(spirit):
 		a.connect("grim_touched", self, "_on_Animal_grim_touched")
 		call_deferred("add_child", a)
 		spirit.queue_free()
-		var count_left = $Spirits.get_child_count()
-		#spirit hasn't been removed yet
-		if count_left <= 1:
-			$Trees/PlayerGrim/AnimatedSprite.play("happy")
-			$Trees/PlayerGrim/AnimatedSprite.position = $Trees/PlayerGrim.happy_pos
+		var count_left = $Spirits.get_child_count()-1
+		if count_left == 0:
+			$PlayerGrim/AnimatedSprite.play("happy")
+			$PlayerGrim/AnimatedSprite.position = $PlayerGrim.happy_pos
 			$Win.show()
 			get_tree().paused = true
 		else:
 			var a_spirit := $Spirits.get_child(0)
 			if (a_spirit == spirit):
 				a_spirit = $Spirits.get_child(1)
-			add_child(arrow)
+			if !arrow.get_parent():
+				add_child(arrow)
 			arrow.position = player_grim.position
 			arrow.look_at(a_spirit.position)
 			arrow.play()
-			if count_left <= 4:
+			if count_left <= 5:
 				for s in $Spirits.get_children():
 					s.set_readiness(s.player.frame - 1)
 	else:
 		spirit.set_readiness(spirit.player.frame + 1)
-	$Trees/PlayerGrim/AnimatedSprite.frame = 0
-	$Trees/PlayerGrim/AnimatedSprite.play()
-	$Trees/PlayerGrim/AnimatedSprite.position = $Trees/PlayerGrim.default_pos
+	$PlayerGrim/AnimatedSprite.frame = 0
+	$PlayerGrim/AnimatedSprite.play()
+	$PlayerGrim/AnimatedSprite.position = $PlayerGrim.default_pos

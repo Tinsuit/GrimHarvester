@@ -717,9 +717,6 @@ margin_bottom = -94.0
 rect_scale = Vector2( 3, 3 )
 text = "YOUR HARVEST IS COMPLETE"
 
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -26, 1448 )
-
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2( 718, -1654 )
 script = ExtResource( 7 )
@@ -735,6 +732,8 @@ color = Color( 0.184314, 0.0313726, 0.0313726, 1 )
 
 [node name="Arrow" type="AnimatedSprite" parent="."]
 frames = SubResource( 31 )
+centered = false
+offset = Vector2( 0, -20 )
 
 [connection signal="body_entered" from="Talky/Area2D" to="Talky" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Talky/Area2D" to="Talky" method="_on_Area2D_body_exited"]
