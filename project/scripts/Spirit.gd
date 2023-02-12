@@ -20,7 +20,14 @@ var directions = {
 	"Right": Vector2(1, 0)
 }
 
-var bounds = {"left":-1600, "right":2700, "up": -1200, "down":1400}
+enum BOUNDS {
+	DEFAULT,
+	MOUNTAIN
+}
+
+var bound:int = BOUNDS.DEFAULT
+
+var default_boundary = {"left":-1600, "right":2700, "up": -1200, "down":1400}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,6 +36,10 @@ func _ready():
 	set_readiness(random.randi_range(0, 3))
 	if player.frame == 0:
 		$Readiness.stop()
+	match get_parent().get_parent().name:
+		"Mountain": bound = BOUNDS.MOUNTAIN
+		"Wetlands", "Forest": bound = BOUNDS.DEFAULT
+		var nm: assert(false, "unknown level name " + nm)
 		
 func set_readiness(i:int):
 	player.frame = clamp(i, 0, 3)
@@ -42,8 +53,12 @@ func set_readiness(i:int):
 func _process(delta):
 	if dir != null:
 		translate(dir * speed * delta * (5 if running else 1))
-		position.x = clamp(position.x, bounds.left, bounds.right)
-		position.y = clamp(position.y, bounds.up, bounds.down)
+		if bound == BOUNDS.MOUNTAIN:
+			position.y = clamp(position.y, default_boundary.up, default_boundary.down)
+			position.x = clamp(position.x, -(position.y + 1440), 2.4 * position.y + 2600)
+		else:
+			position.x = clamp(position.x, default_boundary.left, default_boundary.right)
+			position.y = clamp(position.y, default_boundary.up, default_boundary.down)
 	else:
 		if randf() >= 0.3: 
 			var areas:Array = get_overlapping_areas()

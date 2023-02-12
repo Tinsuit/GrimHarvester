@@ -7,7 +7,7 @@ const TOTAL = 75
 
 var random = RandomNumberGenerator.new()
 
-onready var player_grim := $PlayerGrim as PlayerGrim
+onready var player_grim := $Trees/PlayerGrim as PlayerGrim
 
 onready var arrow = $Arrow
 # Called when the node enters the scene tree for the first time.
@@ -37,8 +37,8 @@ func _on_Spirit_grim_touched(spirit):
 		spirit.queue_free()
 		var count_left = $Spirits.get_child_count()-1
 		if count_left == 0:
-			$PlayerGrim/AnimatedSprite.play("happy")
-			$PlayerGrim/AnimatedSprite.position = $PlayerGrim.happy_pos
+			$Trees/PlayerGrim/AnimatedSprite.play("happy")
+			$Trees/PlayerGrim/AnimatedSprite.position = player_grim.happy_pos
 			$Win.show()
 			get_tree().paused = true
 		else:
@@ -55,6 +55,6 @@ func _on_Spirit_grim_touched(spirit):
 					s.set_readiness(s.player.frame - 1)
 	else:
 		spirit.set_readiness(spirit.player.frame + 1)
-	$PlayerGrim/AnimatedSprite.frame = 0
-	$PlayerGrim/AnimatedSprite.play()
-	$PlayerGrim/AnimatedSprite.position = $PlayerGrim.default_pos
+	$Trees/PlayerGrim/AnimatedSprite.frame = 0
+	$Trees/PlayerGrim/AnimatedSprite.play()
+	$Trees/PlayerGrim/AnimatedSprite.position = player_grim.default_pos
