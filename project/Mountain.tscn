@@ -93,11 +93,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=32]
-extents = Vector2( 39.5, 39 )
-
 [sub_resource type="CircleShape2D" id=33]
 radius = 191.003
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 39.5, 39 )
 
 [node name="Mountain" type="Node2D"]
 script = ExtResource( 5 )
@@ -152,7 +152,7 @@ position = Vector2( -624, 720 )
 position = Vector2( -528, 720 )
 
 [node name="Platform7" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( -960, 288 )
+position = Vector2( -1104, 192 )
 
 [node name="Platform8" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( -528, 480 )
@@ -214,6 +214,9 @@ position = Vector2( 1440, 1152 )
 [node name="Platform16" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 1872, 672 )
 
+[node name="Platform91" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 1872, 480 )
+
 [node name="Platform17" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 1008, 864 )
 
@@ -229,6 +232,12 @@ position = Vector2( 1200, 48 )
 [node name="Platform20" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 1776, -384 )
 
+[node name="Platform94" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2112, -528 )
+
+[node name="Platform95" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2160, -528 )
+
 [node name="Platform21" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 1584, 48 )
 
@@ -243,6 +252,9 @@ position = Vector2( 960, -432 )
 
 [node name="Platform25" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( -48, -240 )
+
+[node name="Platform93" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( -240, -144 )
 
 [node name="Platform26" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 96, -480 )
@@ -287,7 +299,7 @@ position = Vector2( -1296, 384 )
 position = Vector2( -1824, 1200 )
 
 [node name="Platform36" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( -1248, 624 )
+position = Vector2( -1392, 576 )
 
 [node name="Platform37" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( -768, 1200 )
@@ -303,6 +315,15 @@ position = Vector2( 2688, 1104 )
 
 [node name="Platform41" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 2352, 528 )
+
+[node name="Platform92" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2688, 384 )
+
+[node name="Platform96" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2688, 0 )
+
+[node name="Platform97" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2736, 0 )
 
 [node name="Platform42" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( 2016, 192 )
@@ -392,7 +413,7 @@ position = Vector2( 480, 672 )
 position = Vector2( 480, 672 )
 
 [node name="MountainGoat" parent="." instance=ExtResource( 4 )]
-position = Vector2( 672, -96 )
+position = Vector2( 576, 240 )
 
 [node name="Spirits" type="Node2D" parent="."]
 
@@ -415,6 +436,129 @@ position = Vector2( -3, 0 )
 frames = SubResource( 31 )
 centered = false
 offset = Vector2( 0, -20 )
+
+[node name="Talky7" type="Node2D" parent="."]
+position = Vector2( 1056, 336 )
+z_index = 1
+script = ExtResource( 7 )
+
+[node name="Qu" type="Control" parent="Talky7"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Talky7/Qu"]
+margin_left = 390.0
+margin_top = -328.0
+margin_right = 430.0
+margin_bottom = -311.0
+rect_scale = Vector2( 2, 2 )
+text = "????"
+
+[node name="Answer" type="Control" parent="Talky7"]
+margin_left = 409.0
+margin_top = -365.0
+margin_right = 449.0
+margin_bottom = -325.0
+
+[node name="Label" type="Label" parent="Talky7/Answer"]
+margin_left = -107.0
+margin_top = -132.0
+margin_right = 30.0
+margin_bottom = 32.0
+rect_scale = Vector2( 2, 2 )
+text = "When spirits clump together to much, they can become less ready to move on"
+autowrap = true
+
+[node name="Area2D" type="Area2D" parent="Talky7"]
+position = Vector2( 430, -347 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Talky7/Area2D"]
+shape = SubResource( 33 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Talky6" type="Node2D" parent="."]
+position = Vector2( -720, 240 )
+z_index = 1
+script = ExtResource( 7 )
+
+[node name="Qu" type="Control" parent="Talky6"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Talky6/Qu"]
+margin_left = 390.0
+margin_top = -328.0
+margin_right = 430.0
+margin_bottom = -311.0
+rect_scale = Vector2( 2, 2 )
+text = "????"
+
+[node name="Answer" type="Control" parent="Talky6"]
+margin_left = 409.0
+margin_top = -365.0
+margin_right = 449.0
+margin_bottom = -325.0
+
+[node name="Label" type="Label" parent="Talky6/Answer"]
+margin_left = -107.0
+margin_top = -132.0
+margin_right = 30.0
+margin_bottom = 32.0
+rect_scale = Vector2( 2, 2 )
+text = "Look! I made it it the highest!"
+autowrap = true
+
+[node name="Area2D" type="Area2D" parent="Talky6"]
+position = Vector2( 430, -347 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Talky6/Area2D"]
+shape = SubResource( 33 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Talky8" type="Node2D" parent="."]
+position = Vector2( 960, 1440 )
+z_index = 1
+script = ExtResource( 7 )
+
+[node name="Qu" type="Control" parent="Talky8"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Talky8/Qu"]
+margin_left = 390.0
+margin_top = -328.0
+margin_right = 430.0
+margin_bottom = -311.0
+rect_scale = Vector2( 2, 2 )
+text = "????"
+
+[node name="Answer" type="Control" parent="Talky8"]
+margin_left = 409.0
+margin_top = -365.0
+margin_right = 449.0
+margin_bottom = -325.0
+
+[node name="Label" type="Label" parent="Talky8/Answer"]
+margin_left = -107.0
+margin_top = -132.0
+margin_right = 30.0
+margin_bottom = 32.0
+rect_scale = Vector2( 2, 2 )
+text = "Why do the spirits like the top of the mountain so much? It's so much better down here - a little croweded I guess"
+autowrap = true
+
+[node name="Area2D" type="Area2D" parent="Talky8"]
+position = Vector2( 430, -347 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Talky8/Area2D"]
+shape = SubResource( 33 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2( 393, 1918 )
@@ -470,133 +614,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Talky6" type="Node2D" parent="Exit"]
-position = Vector2( -1113, -1678 )
-z_index = 1
-script = ExtResource( 7 )
-
-[node name="Qu" type="Control" parent="Exit/Talky6"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Label" type="Label" parent="Exit/Talky6/Qu"]
-margin_left = 390.0
-margin_top = -328.0
-margin_right = 430.0
-margin_bottom = -311.0
-rect_scale = Vector2( 2, 2 )
-text = "????"
-
-[node name="Answer" type="Control" parent="Exit/Talky6"]
-margin_left = 409.0
-margin_top = -365.0
-margin_right = 449.0
-margin_bottom = -325.0
-
-[node name="Label" type="Label" parent="Exit/Talky6/Answer"]
-margin_left = -107.0
-margin_top = -132.0
-margin_right = 30.0
-margin_bottom = 32.0
-rect_scale = Vector2( 2, 2 )
-text = "Look! I made it it the highest!"
-autowrap = true
-
-[node name="Area2D" type="Area2D" parent="Exit/Talky6"]
-position = Vector2( 430, -347 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/Talky6/Area2D"]
-shape = SubResource( 33 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Talky7" type="Node2D" parent="Exit"]
-position = Vector2( 663, -1582 )
-z_index = 1
-script = ExtResource( 7 )
-
-[node name="Qu" type="Control" parent="Exit/Talky7"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Label" type="Label" parent="Exit/Talky7/Qu"]
-margin_left = 390.0
-margin_top = -328.0
-margin_right = 430.0
-margin_bottom = -311.0
-rect_scale = Vector2( 2, 2 )
-text = "????"
-
-[node name="Answer" type="Control" parent="Exit/Talky7"]
-margin_left = 409.0
-margin_top = -365.0
-margin_right = 449.0
-margin_bottom = -325.0
-
-[node name="Label" type="Label" parent="Exit/Talky7/Answer"]
-margin_left = -107.0
-margin_top = -132.0
-margin_right = 30.0
-margin_bottom = 32.0
-rect_scale = Vector2( 2, 2 )
-text = "When spirits clump together to much, they can become less ready to move on"
-autowrap = true
-
-[node name="Area2D" type="Area2D" parent="Exit/Talky7"]
-position = Vector2( 430, -347 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/Talky7/Area2D"]
-shape = SubResource( 33 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Talky8" type="Node2D" parent="Exit"]
-position = Vector2( 567, -478 )
-z_index = 1
-script = ExtResource( 7 )
-
-[node name="Qu" type="Control" parent="Exit/Talky8"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Label" type="Label" parent="Exit/Talky8/Qu"]
-margin_left = 390.0
-margin_top = -328.0
-margin_right = 430.0
-margin_bottom = -311.0
-rect_scale = Vector2( 2, 2 )
-text = "????"
-
-[node name="Answer" type="Control" parent="Exit/Talky8"]
-margin_left = 409.0
-margin_top = -365.0
-margin_right = 449.0
-margin_bottom = -325.0
-
-[node name="Label" type="Label" parent="Exit/Talky8/Answer"]
-margin_left = -107.0
-margin_top = -132.0
-margin_right = 30.0
-margin_bottom = 32.0
-rect_scale = Vector2( 2, 2 )
-text = "Why do the spirits like the top of the mountain so much? It's so much better down here - a little croweded I guess"
-autowrap = true
-
-[node name="Area2D" type="Area2D" parent="Exit/Talky8"]
-position = Vector2( 430, -347 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/Talky8/Area2D"]
-shape = SubResource( 33 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="Trees" type="YSort" parent="."]
 
 [node name="PlayerGrim" parent="Trees" instance=ExtResource( 1 )]
-position = Vector2( 1536, -1008 )
 
 [node name="Tree1142" parent="Trees" instance=ExtResource( 9 )]
 position = Vector2( 1584, 48 )
@@ -5167,12 +5187,12 @@ scale = Vector2( 2, 2 )
 [node name="Tree1141" parent="Trees" instance=ExtResource( 9 )]
 position = Vector2( -240, -144 )
 
+[connection signal="body_entered" from="Talky7/Area2D" to="Talky7" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Talky7/Area2D" to="Talky7" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Talky6/Area2D" to="Talky6" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Talky6/Area2D" to="Talky6" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Talky8/Area2D" to="Talky8" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Talky8/Area2D" to="Talky8" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_Exit_body_entered"]
 [connection signal="body_entered" from="Exit/Talky5/Area2D" to="Exit/Talky5" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Exit/Talky5/Area2D" to="Exit/Talky5" method="_on_Area2D_body_exited"]
-[connection signal="body_entered" from="Exit/Talky6/Area2D" to="Exit/Talky6" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Exit/Talky6/Area2D" to="Exit/Talky6" method="_on_Area2D_body_exited"]
-[connection signal="body_entered" from="Exit/Talky7/Area2D" to="Exit/Talky7" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Exit/Talky7/Area2D" to="Exit/Talky7" method="_on_Area2D_body_exited"]
-[connection signal="body_entered" from="Exit/Talky8/Area2D" to="Exit/Talky8" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Exit/Talky8/Area2D" to="Exit/Talky8" method="_on_Area2D_body_exited"]
