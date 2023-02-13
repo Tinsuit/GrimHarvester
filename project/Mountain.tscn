@@ -257,7 +257,7 @@ position = Vector2( -48, -240 )
 position = Vector2( -240, -144 )
 
 [node name="Platform26" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 96, -480 )
+position = Vector2( -576, -768 )
 
 [node name="Platform27" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( -480, -528 )

@@ -6,6 +6,7 @@ export var speed:int = 150
 var target
 var running = false
 onready var player:AnimatedSprite = $AnimatedSprite
+var won = false
 
 const default_pos = Vector2(24, 10)
 const default_pos_left = Vector2(24, -10)
@@ -17,9 +18,22 @@ const happy_pos = Vector2(-16, -12)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.frame = 2
+	
+func on_win():
+	player.play("happy")
+	player.position = happy_pos
+	won = true
+	$Poison.stop()
+	$Ending.start()
+	collision_layer = 0x0000
+	collision_mask = 0x0000
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if won: 
+		move_and_collide(Vector2.UP * 2)
+		rotate(0.05)
+		return
 	if target != null:
 		var effect = 1
 		if $Poison.time_left > 0:
@@ -77,3 +91,6 @@ func _on_Poison_timeout():
 	player.stop()
 	player.frame = 2
 
+func _on_Ending_timeout():
+	var err = get_tree().change_scene("res://World.tscn")
+	if err != OK: print(err)

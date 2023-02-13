@@ -27,6 +27,8 @@ func _on_Animal_grim_touched():
 func _on_Spirit_grim_neared(spirit):
 	if player_grim.running == true:
 		spirit.run_away(player_grim.position)
+		
+
 
 func _on_Spirit_grim_touched(spirit):
 	if spirit.player.frame == 0:
@@ -37,10 +39,14 @@ func _on_Spirit_grim_touched(spirit):
 		spirit.queue_free()
 		var count_left = $Spirits.get_child_count()-1
 		if count_left == 0:
-			$Trees/PlayerGrim/AnimatedSprite.play("happy")
-			$Trees/PlayerGrim/AnimatedSprite.position = player_grim.happy_pos
+			var camera = player_grim.get_node("Camera2D")
+			var pos = player_grim.to_global(camera.position)
+			player_grim.remove_child(camera)
+			add_child(camera)
+			camera.position = pos
 			$Win.show()
-			get_tree().paused = true
+			player_grim.on_win()
+			
 		else:
 			var a_spirit := $Spirits.get_child(0)
 			if (a_spirit == spirit):

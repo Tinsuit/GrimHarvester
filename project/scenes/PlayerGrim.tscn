@@ -79,4 +79,9 @@ one_shot = true
 [node name="Touch" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="Ending" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="Poison" to="." method="_on_Poison_timeout"]
+[connection signal="timeout" from="Ending" to="." method="_on_Ending_timeout"]
