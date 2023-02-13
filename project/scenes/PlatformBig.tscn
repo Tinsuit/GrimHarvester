@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://textures/ledge-grey-orange-large.png" type="Texture" id=1]
+[ext_resource path="res://textures/ledge-orange-large.png" type="Texture" id=2]
+[ext_resource path="res://textures/ledge-grey-large.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 144, 96 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 144, 96 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 144, 96 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "OG",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "grey",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "orange",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 72, 48 )
+
+[node name="Sprite" type="AnimatedSprite"]
+frames = SubResource( 5 )
+animation = "orange"
+centered = false
+
+[node name="Platform" type="Area2D" parent="." groups=["platform"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 72, 48 )
+shape = SubResource( 1 )

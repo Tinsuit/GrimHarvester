@@ -17,8 +17,8 @@ func _process(delta):
 		var areas = $Search.get_overlapping_areas()
 		var positions:Array = []
 		for a in areas:
-			if a.name.begins_with("Platform") && a.position != position:
-				positions.push_back(a.position)
+			if a.is_in_group("platform") && a.get_parent().position != position:
+				positions.push_back(a.get_parent().position)
 		if positions.empty():
 			print("NO PLATFORM FOUND AT " + str(position))
 			position = Vector2.ZERO

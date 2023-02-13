@@ -113,17 +113,23 @@ script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
+centered = false
+offset = Vector2( 0, -36 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 21 )
+visible = false
+position = Vector2( 48, 63 )
 rotation = -1.5708
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( -24, -22 )
+visible = false
+position = Vector2( 27, 27 )
 shape = SubResource( 4 )
 
 [node name="Search" type="Area2D" parent="."]
+visible = false
+position = Vector2( 47, 42 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Search"]
 shape = SubResource( 5 )
