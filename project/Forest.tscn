@@ -731,7 +731,10 @@ margin_bottom = 80.0
 color = Color( 0.184314, 0.0313726, 0.0313726, 1 )
 
 [node name="Arrow" type="AnimatedSprite" parent="."]
+position = Vector2( -1419, -1178 )
 frames = SubResource( 31 )
+frame = 13
+playing = true
 centered = false
 offset = Vector2( 0, -20 )
 
